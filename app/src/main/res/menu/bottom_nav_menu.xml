@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_image"
+        android:visible="true"
+        android:icon="@drawable/ic_baseline_image_24"
+        android:title="@string/title_image" />
+
+    <item
+        android:id="@+id/navigation_video"
+        android:visible="true"
+        android:icon="@drawable/ic_baseline_video_library_24"
+        android:title="@string/title_video" />
+
+    <item
+        android:id="@+id/navigation_audio"
+        android:icon="@drawable/ic_baseline_audiotrack_24"
+        android:visible="true"
+        android:title="@string/title_audio" />
+
+    <item
+        android:id="@+id/navigation_gif"
+        android:icon="@drawable/ic_baseline_gif_24"
+        android:visible="true"
+        android:title="@string/title_gif" />
+
+</menu>

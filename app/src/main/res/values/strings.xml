@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Assessment</string>
+    <string name="title_image">IMAGE</string>
+    <string name="title_video">VIDEO</string>
+    <string name="title_audio">AUDIO</string>
+    <string name="title_gif">GIF</string>
+    <string name="appbar_image">Image</string>
+    <string name="appbar_audio">Audio</string>
+    <string name="appbar_video">Video</string>
+    <string name="appbar_gif">GIF</string>
+    <string name="appbar_uploads">Uploaded Files</string>
+
+</resources>
