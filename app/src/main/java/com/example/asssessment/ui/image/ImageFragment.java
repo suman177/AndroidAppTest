@@ -32,6 +32,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.asssessment.R;
 import com.example.asssessment.models.GetUploadedImagesResponse;
 import com.example.asssessment.models.GifResponseModel;
@@ -55,21 +56,17 @@ public class ImageFragment extends Fragment {
 
     private ShareViewModel sharedViewModel;
 
-
     GridView gridView;
     List<Boolean> selectedImages = new ArrayList<Boolean>();
     Toolbar toolbar;
     private Button menuButton;
     List<String> totalImages;
-    FloatingActionButton fab ;
-
-
+    FloatingActionButton fab;
 
 
     private void getData() {
         System.out.println("Getting new Data");
         sharedViewModel = new ViewModelProvider(getActivity()).get(ShareViewModel.class);
-
           sharedViewModel.getUrl().observe(getViewLifecycleOwner(), new Observer<List<String>>() {
               @RequiresApi(api = Build.VERSION_CODES.N)
               @Override
@@ -156,8 +153,6 @@ public class ImageFragment extends Fragment {
     }
 
 
-
-
     class ImageGridAdapter extends BaseAdapter {
         Context context;
         LayoutInflater inflater;
@@ -193,7 +188,7 @@ public class ImageFragment extends Fragment {
             }
 
             CheckBox checkBox = (CheckBox) listitemView.findViewById(R.id.grid_item_checkbox);
-            checkBox.setVisibility(1);
+            checkBox.setVisibility(View.VISIBLE);
 
 
             checkBox.setOnClickListener(new View.OnClickListener() {
@@ -238,7 +233,11 @@ public class ImageFragment extends Fragment {
 
             ImageView pic = listitemView.findViewById(R.id.grid_image);
 
-            Picasso.get().load(list.get(i)).placeholder(R.drawable.ic_launcher_background).fit().into(pic);
+            Glide.with(context)
+                    .load(list.get(i))
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(pic);
+//            Picasso.get().load(list.get(i)).placeholder(R.drawable.ic_launcher_background).fit().into(pic);
 
             return listitemView;
         }

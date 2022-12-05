@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.asssessment.R;
 import com.example.asssessment.models.GetUploadedImagesResponse;
 import com.example.asssessment.models.GifResponseModel;
@@ -108,7 +109,11 @@ public class UploadedFiles
             }
 
             ImageView pic = listitemView.findViewById(R.id.grid_image);
-            Picasso.get().load(list.get(i).getUrl()).placeholder(R.drawable.ic_launcher_background).fit().into(pic);
+            Glide.with(context)
+                    .load(list.get(i).getUrl())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(pic);
+//            Picasso.get().load(list.get(i).getUrl()).placeholder(R.drawable.ic_launcher_background).fit().into(pic);
             return listitemView;
         }
     }

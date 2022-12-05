@@ -22,6 +22,7 @@ import android.widget.ImageView;
 
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.asssessment.MainActivity;
 import com.example.asssessment.R;
 import com.example.asssessment.models.GifResponseModel;
@@ -159,7 +160,12 @@ public class GifFragment extends Fragment {
             }
 
             ImageView pic = listitemView.findViewById(R.id.grid_image);
-            Picasso.get().load(list.get(i).getMedia().get(0).getGif().getUrl()).placeholder(R.drawable.ic_launcher_background).fit().into(pic);
+            Glide.with(context)
+                    .load(list.get(i).getMedia().get(0).getGif().getUrl())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(pic);
+            //Supports only gif file
+            //Picasso.get().load(list.get(i).getMedia().get(0).getGif().getUrl()).placeholder(R.drawable.ic_launcher_background).fit().into(pic);
             return listitemView;
         }
     }
